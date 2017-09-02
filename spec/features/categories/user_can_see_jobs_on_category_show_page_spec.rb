@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "User can create a new category" do
-  scenario "user create new category" do
+RSpec.describe "user visits show page for a specific category" do
+  scenario "they see a list of jobs in that category" do
     company = Company.create(name: "ESPN")
     category = Category.create(title: "HR")
     job = company.jobs.create(title: "developer", description: "super fun", level_of_interest: 90,
@@ -9,12 +9,8 @@ RSpec.describe "User can create a new category" do
     job_1 = company.jobs.create(title: "broadcaster", description: "super fun", level_of_interest: 90,
                               city: "New York", category: category)
 
-    visit categories_path
-
-    click_on "Create new category"
-    fill_in "Title", with: "Web Development"
-    click_on "Create Category"
-
-    expect(page).to have_content("Web Development")
+    visit category_path(category)
+    expect(page).to have_content("ESPN-developer")
+    expect(page).to have_content("ESPN-broadcaster")
   end
 end

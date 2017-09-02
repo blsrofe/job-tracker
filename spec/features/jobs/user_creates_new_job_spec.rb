@@ -10,8 +10,7 @@ describe "User creates a new job" do
     fill_in "job[description]", with: "So fun!"
     fill_in "job[level_of_interest]", with: 80
     fill_in "job[city]", with: "Denver"
-    find(:xpath, '//option[contains(text(), "HR")]').select_option
-    #select "HR", from: "Category"
+    select category.title, from: "job[category_id]"
 
     click_button "Create Job"
     expect(page).to have_content("ESPN")
