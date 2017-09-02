@@ -1,4 +1,4 @@
 <h1><%= @category.title %></h1>
-<% @jobs.each do |job| %>
+<% @category.jobs.each do |job| %>
   <%= "#{job.company.name}-#{job.title}" %><br/>
 <% end %>

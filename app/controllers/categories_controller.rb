@@ -19,7 +19,6 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @jobs = Category.find_all_jobs(@category.id).first
   end
 
   def destroy
