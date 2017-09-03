@@ -23,4 +23,11 @@ describe Category do
       end
     end
   end
+
+  describe "relationships" do
+    it "has many jobs" do
+      category = Category.new(title: "Web Development")
+      expect(category).to respond_to(:jobs)
+    end
+  end
 end

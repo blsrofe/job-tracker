@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
     resources :categories
 
-    resources :jobs, only: [:show] do
+    resources :jobs, only: [:show, :index] do
       resources :comments, only: [:create, :new]
     end
 
