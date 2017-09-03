@@ -16,7 +16,6 @@ RSpec.describe "user visits a company show page" do
   fill_in "Email", with: "boss@company.com"
   click_on "Create Contact"
 
-  expect(current_path).to eq(company_jobs_path(company))
   expect(page).to have_content("Person")
   expect(page).to have_content("Boss")
   expect(page).to have_content("boss@company.com")

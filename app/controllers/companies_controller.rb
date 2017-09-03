@@ -18,8 +18,8 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    company = Company.find(params[:id])
-    redirect_to company_jobs_path(company)
+    @company = Company.find(params[:id])
+    @jobs = @company.jobs
   end
 
   def edit
@@ -49,6 +49,6 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :city)
+    params.require(:company).permit(:name)
   end
 end

@@ -1,11 +1,11 @@
-<h1>All Jobs for <strong><%= @company.name %></strong></h1>
+All Jobs for <strong><%= @company.name %></strong>
 
-<% @company.jobs.each do |job| %>
-  <ul><%= job.title %></ul>
+<% @jobs.each do |job| %>
+  <ul><%= job.title %> at <%= job.company.name %></ul>
 <% end %>
-
+<h3>Contacts</h3>
 <% @company.contacts.each do |contact| %>
   <p><%= "#{contact.name}, #{contact.position}, #{contact.email}" %></p>
 <% end %>
 
-<%= link_to "Add Contact", new_company_contact_path(@compnay) %>
+<%= link_to "Add Contact", new_company_contact_path(@company) %>
