@@ -6,8 +6,12 @@ class CommentsController < ApplicationController
 
   def create
     @job = Job.find(params[:job_id])
-    @comment = @job.comments.create(comment_params)
-    redirect_to job_path(@job)
+    @comment = @job.comments.new(comment_params)
+    if @comment.save
+      redirect_to job_path(@job)
+    else
+      render :new
+    end
   end
 
   private
