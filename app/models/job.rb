@@ -25,4 +25,8 @@ class Job < ApplicationRecord
     .sort_by { |k, v| v }.reverse.first(3)
   end
 
+  def self.only_for_city(location)
+    where(city: location)
+  end
+
 end

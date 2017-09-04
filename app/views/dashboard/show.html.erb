@@ -1,16 +1,22 @@
-<h1>Analytics</h1>
+<h1 class="main_heading">Analytics</h1>
 
-<h3>Job Count by Level of Interest</h3>
-<% @level_of_interest.each do |level, count| %>
-  <p><%= "#{level}: #{count}" %></p>
-<% end %>
+<section class='borders'>
+  <h3>Job Count by Level of Interest</h3>
+  <% @level_of_interest.each do |level, count| %>
+    <p><%= "#{level}: #{count}" %></p>
+  <% end %>
+</section>
 
-<h3>Jobs by Location</h3>
-<% @cities.each do |city, count| %>
-  <p><%= "#{city}: #{count}" %></p>
-<% end %>
+<section class='borders'>
+  <h3>Jobs by Location</h3>
+  <% @cities.each do |city, count| %>
+    <p><%= link_to "#{city}: #{count}", "/jobs?location=#{city}" %></p>
+  <% end %>
+</section>
 
-<h3> Top Three Companies Ranked By Average Level of Interest</h3>
-<% @top_three.each do |array| %>
-  <p><%= "#{array[0]}: #{array[1].round(2)}"%></p>
-<% end %>
+<section class='borders'>
+  <h3> Top Three Companies Ranked By Average Level of Interest</h3>
+  <% @top_three.each do |array| %>
+    <p><%= "#{array[0]}: #{array[1].round(2)}"%></p>
+  <% end %>
+</section>

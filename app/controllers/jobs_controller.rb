@@ -1,6 +1,8 @@
 class JobsController < ApplicationController
   def index
-    if params[:sort] == "location"
+    if params[:location] != nil
+      @jobs = Job.only_for_city(params[:location])
+    elsif params[:sort] == "location"
       @jobs = Job.location_sort
     else
       @jobs = Job.interest_sort
