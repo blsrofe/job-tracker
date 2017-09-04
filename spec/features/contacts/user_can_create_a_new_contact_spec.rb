@@ -8,13 +8,16 @@ RSpec.describe "user visits a company show page" do
                               city: "New York", category: category)
 
   visit company_path(company)
-  click_on "Add Contact"
+  within(".contact") do
+       click_on "Add Contact"
+   end
+
 
   expect(current_path).to eq(new_company_contact_path(company))
   fill_in "Name", with: "Person"
   fill_in "Position", with: "Boss"
   fill_in "Email", with: "boss@company.com"
-  click_on "Create Contact"
+  click_button "Create Contact"
 
   expect(page).to have_content("Person")
   expect(page).to have_content("Boss")

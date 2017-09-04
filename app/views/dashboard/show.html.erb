@@ -1,18 +1,16 @@
 <h1>Analytics</h1>
 
 <h3>Job Count by Level of Interest</h3>
-<ul>
-  <li>0-9: <%= @level_of_interest[0] %></li>
-  <li>10-19: <%= @level_of_interest[10] %></li>
-  <li>20-29: <%= @level_of_interest[20] %></li>
-  <li>30-39: <%= @level_of_interest[30] %></li>
-  <li>40-49: <%= @level_of_interest[40] %></li>
-  <li>50-59: <%= @level_of_interest[50] %></li>
-  <li>60-69: <%= @level_of_interest[60] %></li>
-  <li>70-79: <%= @level_of_interest[70] %></li>
-  <li>80-89: <%= @level_of_interest[80] %></li>
-  <li>90-99: <%= @level_of_interest[90] %></li>
-  <li>100: <%= @level_of_interest[100] %></li>
-</ul>
+<% @level_of_interest.each do |level, count| %>
+  <p><%= "#{level}: #{count}" %></p>
+<% end %>
 
-<h3> Top Three Companies Ranked By Level of Interest</h3>
+<h3>Jobs by Location</h3>
+<% @cities.each do |city, count| %>
+  <p><%= "#{city}: #{count}" %></p>
+<% end %>
+
+<h3> Top Three Companies Ranked By Average Level of Interest</h3>
+<% @top_three.each do |array| %>
+  <p><%= "#{array[0]}: #{array[1].round(2)}"%></p>
+<% end %>

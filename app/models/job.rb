@@ -16,7 +16,13 @@ class Job < ApplicationRecord
     order(level_of_interest: :desc)
   end
 
-  # def self.top_three
-  #   group(:company_id).average("level_of_interest").take(3)
-  # end
+  def self.location_sort_count
+    order(:city).group(:city).count
+  end
+
+  def self.top_three
+    joins(:company).group(:name).average(:level_of_interest)
+    .sort_by { |k, v| v }.reverse.first(3)
+  end
+
 end

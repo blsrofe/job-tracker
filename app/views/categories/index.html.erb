@@ -4,7 +4,7 @@
   <section class="boxes">
     <h3 class="mid_headings"><%= link_to category.title, category_path(category) %></h3>
     <button><%= link_to "Delete", category_path(category), method: :delete %></button>
-    <button><%= link_to "Edit", edit_category_path(category) %></button>
+    <button class="edit"><%= link_to "Edit", edit_category_path(category) %></button>
   </section>
 <% end %>
 <p><%= link_to "Create new category", new_category_path %></p>

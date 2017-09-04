@@ -9,7 +9,9 @@ RSpec.describe "user visits a job show page" do
 
     visit job_path(job)
 
-    click_on "New Comment"
+    within(".comment") do
+       click_on "New Comment"
+   end
 
     expect(current_path).to eq(new_job_comment_path(job))
     fill_in "Content", with: "talked with someone"

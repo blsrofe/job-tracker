@@ -75,5 +75,26 @@ describe Job do
       expect(Job.interest_sort).to eq([job_3, job_2, job_1])
 
     end
+
+    it "can sort by location and return a count of jobs at each location" do
+      company = Company.create!(name: "ESPN")
+      category = Category.create(title: "HR")
+      job_1 = company.jobs.create!(title: "Developer", level_of_interest: 60, city: "Denver", category: category)
+      job_2 = company.jobs.create!(title: "QA Analyst", level_of_interest: 65, city: "New York City", category: category)
+      job_3 = company.jobs.create!(title: "Senior VP", level_of_interest: 70, city: "Denver", category: category)
+
+      expect(Job.location_sort_count).to eq({"Denver" => 2, "New York City" =>  1})
+    end
+
+    it "can return the top three companies by average level of interest" do
+      company = Company.create!(name: "ESPN")
+      company_1 = Company.create!(name: "Turing")
+      category = Category.create(title: "HR")
+      job_1 = company.jobs.create!(title: "Developer", level_of_interest: 60, city: "Denver", category: category)
+      job_2 = company_1.jobs.create!(title: "QA Analyst", level_of_interest: 60, city: "New York City", category: category)
+      job_3 = company.jobs.create!(title: "Senior VP", level_of_interest: 70, city: "Denver", category: category)
+
+      expect(Job.top_three).to eq([["ESPN", 65], ["Turing", 60]])
+    end
   end
 end
