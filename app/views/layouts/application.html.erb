@@ -3,6 +3,7 @@
 <head>
   <title>JobTracker</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "custom.css" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -10,7 +11,15 @@
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: name %>
   <% end %>
-<%= yield %>
-
+  <header>
+    <h1 class='big_header'>Job Tracker</h1>
+    <nav>
+      <p class='header_tags'><%= link_to "ANALYTICS", dashboard_path %></p>
+      <p class='header_tags'><%= link_to "COMPANIES", companies_path %></p>
+      <p class='header_tags'><%= link_to "JOBS", jobs_path %></p>
+      <p class='header_tags'><%= link_to "CATEGORIES", categories_path %></p>
+    </nav>
+  </header>
+  <%= yield %>
 </body>
 </html>

@@ -1,17 +1,17 @@
-<h1>All Jobs for <strong><%= @company.name %></strong></h1>
+<h1 class="main_heading">All Jobs for <strong><%= @company.name %></strong></h1>
 
 <% @jobs.each do |job| %>
-  <ul>
-    <li><p><%= link_to  "#{job.title} at #{job.company.name}", job_path(job) %></p></li>
-  </ul>
+    <h4 class="mid_headings"><%= link_to "#{job.title}", job_path(job) %></h4>
 <% end %>
-<h3>Contacts</h3>
-<% @company.contacts.each do |contact| %>
-  <ul>
-    <li><p><%= "#{contact.name}, #{contact.position}, #{contact.email}" %></p></li>
-  </ul>
-<% end %>
+<button><%= link_to "Add New Job", new_company_job_path(@company) %></button>
+<section class="borders">
+  <h3>Contacts</h3>
+  <% @company.contacts.each do |contact| %>
 
-<p><%= link_to "Add Contact", new_company_contact_path(@company) %></p>
-<p><%= link_to "Add New Job", new_company_job_path(@company) %></p>
+      <p><%= "#{contact.name}, #{contact.position}, #{contact.email}" %></p>
+
+  <% end %>
+
+  <button><%= link_to "Add Contact", new_company_contact_path(@company) %></button>
+</section>
 <p><%= link_to "<<Back to Companies", companies_path %></p>

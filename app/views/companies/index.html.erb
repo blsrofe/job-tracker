@@ -1,10 +1,9 @@
-<h3>All Companies</h3>
-
+<h1 class="main_heading">All Companies</h1>
   <% @companies.each do |company| %>
-  <ul>
-    <li><%= link_to company.name, company_path(company) %></li>
-    <li><%= link_to "Edit", edit_company_path(company) %></li>
-    <li><%= link_to "Delete", company_path(company), method: "delete" %></li>
-  </ul>
+    <section class='boxes'>
+      <h3 class="mid_headings"><%= link_to company.name, company_path(company) %></h3>
+      <button><%= link_to "Edit", edit_company_path(company) %></button>
+      <button><%= link_to "Delete", company_path(company), method: "delete" %></button>
+    </section>
   <% end %>
-<p><%= link_to "New Company", new_company_path %></p>
+<p><%= link_to "Create New Company", new_company_path %></p>

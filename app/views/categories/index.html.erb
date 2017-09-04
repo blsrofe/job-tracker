@@ -1,8 +1,10 @@
-<h1>All Categories</h1>
+<h1 class="main_heading">All Categories</h1>
 
 <% @categories.each do |category|  %>
-  <p><%= category.title %></p>
-  <p><%= link_to "Delete", category_path(category), method: :delete %></p>
-  <p><%= link_to "Edit", edit_category_path(category) %></p>
+  <section class="boxes">
+    <h3 class="mid_headings"><%= link_to category.title, category_path(category) %></h3>
+    <button><%= link_to "Delete", category_path(category), method: :delete %></button>
+    <button><%= link_to "Edit", edit_category_path(category) %></button>
+  </section>
 <% end %>
 <p><%= link_to "Create new category", new_category_path %></p>

@@ -1,8 +1,5 @@
-<h1>All Jobs</h1>
+<h1 class="main_heading">All Jobs</h1>
 
 <% @jobs.each do |job| %>
-  <ul>
-    <li><%= job.title %> at <%= job.company.name %> in <%= job.city %> with level of interest:  <%= job.level_of_interest %></li>
-  </ul>
+    <h4 class="mid_headings"><%= link_to "#{job.title} at #{job.company.name} in #{job.city} with level of interest: #{job.level_of_interest}", job_path(job) %></h4>
 <% end %>
-<p><%= link_to "<<Back to Company Page", companies_path %></p>
