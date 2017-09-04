@@ -1,20 +1,19 @@
-Title: <%= @job.title %>
-<br>
+<h1>Title: <%= @job.title %></h1>
 
-Description: <%= @job.description %>
-<br>
 
-Level of Interest: <%= @job.level_of_interest %>
-<br>
+<p>Description: <%= @job.description %></p>
+<p>Level of Interest: <%= @job.level_of_interest %></p>
+<p>City: <%= @job.city %></p>
 
-City: <%= @job.city %>
-<br>
 
-Comments: <br/>
+<h3>Comments: </h3>
 <% @job.comments.reverse.each do |comment| %>
-  <p><%= comment.content %></p>
-<% end %><br/>
+  <ul>
+  <li><p><%= comment.content %></p></li>
+ </ul>
+<% end %>
 
-Company: <%= link_to @job.company.name, company_path(@job.company) %><br/>
-<%= link_to "Delete", company_job_path(@job), method: :delete %><br/>
-<%= link_to "New Comment", new_job_comment_path(@job) %>
+<h4>Company: <%= link_to @job.company.name, company_path(@job.company) %></h4>
+<p><%= link_to "Delete", company_job_path(@job), method: :delete %></p>
+<p><%= link_to "Edit", edit_company_job_path(@company, @job) %></p>
+<p><%= link_to "New Comment", new_job_comment_path(@job) %></p>
